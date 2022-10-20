@@ -3,24 +3,28 @@ import {
   useContractMetadata,
   useUnclaimedNFTSupply,
   useActiveClaimCondition,
+  useAddress,
   Web3Button,
   useContract,
+  useContractRead,
 } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import type { NextPage } from "next";
 import { useState } from "react";
 import styles from "../styles/Theme.module.css";
-import Image from 'next/image';
+import Image from "next/image";
 
 // Put Your NFT Drop Contract address from the dashboard here
 const myNftDropContractAddress = "0xFE9c092f1aF5265088e0B66c144AF8D91F4b47A4";
 
 const Home: NextPage = () => {
   const { contract: nftDrop } = useContract(myNftDropContractAddress);
+  const address = useAddress();
+  const { data: userBalance } = useContractRead(nftDrop, "balanceOf", address);
 
   // The amount the user claims
-  const [quantity] = useState(1); 
-  
+  const [quantity] = useState(1);
+
   // Load contract metadata
   const { data: contractMetadata } = useContractMetadata(nftDrop);
 
@@ -56,8 +60,6 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.mintInfoContainer}>
-          
-
         <div className={styles.imageSide}>
           {/* Title of your NFT Collection */}
           <h1>{contractMetadata?.name}</h1>
@@ -86,7 +88,7 @@ const Home: NextPage = () => {
                   {" / "}
                   {
                     // Add unclaimed and claimed supply to get the total supply
-                    claimedSupply?.toNumber() + unclaimedSupply?.toNumber() 
+                    claimedSupply?.toNumber() + unclaimedSupply?.toNumber()
                   }
                 </p>
               ) : (
@@ -112,13 +114,14 @@ const Home: NextPage = () => {
                 <div className={styles.mintContainer}>
                   <Web3Button
                     contractAddress={myNftDropContractAddress}
+                    isDisabled={userBalance?.toNumber() === 1}
                     action={async (contract) =>
                       await contract.erc721.claim(quantity)
                     }
                     // If the function is successful, we can do something here.
                     onSuccess={(result) =>
                       alert(
-                        `Successfully minted ${result.length} NFT${
+                        `Successfully minted ${result.length} Genesis Map NFT${
                           result.length > 1 ? "s" : ""
                         }!`
                       )
@@ -130,7 +133,7 @@ const Home: NextPage = () => {
                   >
                     {`Mint${quantity > 1 ? ` ${quantity}` : ""}${
                       activeClaimCondition?.price.eq(0)
-                        ? " (Free)"
+                        ? ""
                         : activeClaimCondition?.currencyMetadata.displayValue
                         ? ` (${formatUnits(
                             priceToMint,
@@ -140,6 +143,12 @@ const Home: NextPage = () => {
                     }`}
                   </Web3Button>
                 </div>
+
+                {userBalance?.toNumber() === 1 && (
+                  <div>
+                    <h4>Congrats, you now hold the map.</h4>
+                  </div>
+                )}
               </>
             )
           }
