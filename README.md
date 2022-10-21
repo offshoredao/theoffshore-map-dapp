@@ -48,8 +48,15 @@ Inside [`_app.tsx`](/pages/_app.tsx) you can configure the network you want to u
 
 ```jsx
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mumbai;
+const activeChainId = ChainId.Goerli;
 ```
+
+Create a .env.local and set 
+
+```
+ALCHEMY_RPC="https://eth-goerli.g.alchemy.com/v2/MY_KEY"
+```
+
 
 ## Join our Discord!
 
