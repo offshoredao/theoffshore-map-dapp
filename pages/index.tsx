@@ -15,7 +15,7 @@ import styles from "../styles/Theme.module.css";
 import Image from "next/image";
 
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0xBaF73629F6382C0E34Df305880c0531445df2450";
+const myNftDropContractAddress = "0x1EED81Fa0C5E9078a74172BB904cb83Ee3Db5569";
 
 const Home: NextPage = () => {
   const { contract: nftDrop } = useContract(myNftDropContractAddress);
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
             width={300}
             height={300}
             className={styles.image}
-            src={contractMetadata?.image}
+            src={`/offshore-genesis-map.gif`} 
             alt={`${contractMetadata?.name} preview image`}
           />
 
