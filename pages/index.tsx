@@ -125,7 +125,7 @@ const Home: NextPage = () => {
                     // If the function is successful, we can do something here.
                     onSuccess={(result) =>
                       alert(
-                        `Successfully minted ${result.length} Genesis Map NFT${
+                        `Successfully claimed ${result.length} Genesis Map NFT${
                           result.length > 1 ? "s" : ""
                         }!`
                       )
@@ -135,7 +135,7 @@ const Home: NextPage = () => {
                     accentColor="#f213a4"
                     colorMode="dark"
                   >
-                    {`Mint${quantity > 1 ? ` ${quantity}` : ""}${
+                    {`Claim ${quantity > 1 ? ` ${quantity}` : ""}${
                       activeClaimCondition?.price.eq(0)
                         ? ""
                         : activeClaimCondition?.currencyMetadata.displayValue
