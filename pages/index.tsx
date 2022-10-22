@@ -62,9 +62,13 @@ const Home: NextPage = () => {
       <div className={styles.mintInfoContainer}>
         <div className={styles.imageSide}>
           {/* Title of your NFT Collection */}
-          <h1>{contractMetadata?.name}</h1>
+          <h1>{"Genesis Map"}</h1>
           {/* Description of your NFT Collection */}
-          <p className={styles.description}>{contractMetadata?.description}</p>
+          <p className={styles.description}>
+            {
+              "The Genesis Map gives holders lifetime citizenship to the Offshore DAO."
+            }
+          </p>
 
           {/* Image Preview of NFTs */}
           <Image
@@ -146,7 +150,7 @@ const Home: NextPage = () => {
 
                 {userBalance?.toNumber() === 1 && (
                   <div>
-                    <h4>Congrats, you now hold the map.</h4>
+                    <h4>Congratulations, you now hold the map 🏝️.</h4>
                   </div>
                 )}
               </>
