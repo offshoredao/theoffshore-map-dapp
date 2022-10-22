@@ -48,7 +48,7 @@ Inside [`_app.tsx`](/pages/_app.tsx) you can configure the network you want to u
 
 ```jsx
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Goerli;
+const activeChainId = ChainId.Mainnet;
 ```
 
 Create a .env.local and set 
