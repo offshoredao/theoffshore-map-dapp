@@ -131,7 +131,8 @@ const Home: NextPage = () => {
                       )
                     }
                     // If the function fails, we can do something here.
-                    onError={(error) => alert(error?.message)}
+                    // onError={(error) => alert(error?.message)}
+                    onError={(error) => alert("Private Mint: No claim rights found for this address")}
                     accentColor="#f213a4"
                     colorMode="dark"
                   >
