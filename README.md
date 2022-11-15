@@ -1,7 +1,10 @@
-# Customizable NFT Drop Minting Page
+# Offshore Genesis Map 
 
-In this example, you can create your own NFT Drop minting page just by customising the template with your branding, and plugging in your NFT Drop contract address.
-
+- Mint Page: https://dapp.theoffshore.io
+- Collection: https://opensea.io/collection/offshoredao
+- Contract: 
+    - https://etherscan.io/address/0x1aa146c9f24f7d2a6349f935ec3da3268c8eb199
+    - https://etherscan.io/token/0x1aa146c9f24f7d2a6349f935ec3da3268c8eb199
 ## Tools
 
 - [**NFT Drop**](https://portal.thirdweb.com/pre-built-contracts/nft-drop): to create a lazy-minted ERC721 NFT Collection that our users can claim.
@@ -18,15 +21,13 @@ Run this command from the terminal to clone this project:
 npx thirdweb create --template nft-drop
 ```
 
-### 1. Deploy Your Own NFT Drop on thirdweb
+### 1. Deploy Your Own NFT Drop 
 
-Head to the thirdweb dashboard and create your own NFT Drop contract.
-
-You can learn how to do that with our guide [Release an NFT drop on your own site without writing any code](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code#create-a-drop-contract).
+You can learn how to do that [Release an NFT drop](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code#create-a-drop-contract).
 
 Be sure to configure a **name**, **description**, and **image** for your NFT drop in the dashboard.
 
-### 2. Configure the styles to your branding
+### 2. Configure the styles
 
 You can fully customize the colors and style of this template by editing the values in the [`globals.css`](/styles/globals.css) file.
 
@@ -51,13 +52,10 @@ Inside [`_app.tsx`](/pages/_app.tsx) you can configure the network you want to u
 const activeChainId = ChainId.Mainnet;
 ```
 
-Create a .env.local and set 
+Create a .env.local and set as you need.
 
 ```
 ALCHEMY_RPC="https://eth-goerli.g.alchemy.com/v2/MY_KEY"
 ```
 
 
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
